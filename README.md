@@ -1,6 +1,7 @@
-# RollaBall
+# <p align="center"> Roll a Ball</p>
 
 ## Aim:
+To roll a ball using C# program in unity.
 
 ## Algorithm:
 
@@ -29,21 +30,70 @@ Metallic map-> 0
 Smoothness -> 0.25
 Drag the Background to the plane and release the mouse
 
-Material folder -> Create -> Material (Name: Sphere)
+7. Material folder -> Create -> Material (Name: Sphere)
 Inspector ->Surface Inputs ->BaseMAp (Choose the color)
 Metallic map-> 0
 Smoothness -> 0.75
 Drag the Sphere material to the ball and release the mouse
 
- 7. Hierarchy -> Player-> Inspector ->Add component-> Rigidbody
+8. Hierarchy -> Player-> Inspector ->Add component-> Rigidbody
 
-8. Create a new script -> Create a folder in project (Name: Scripts)
+9. Create a new script -> Create a folder in project (Name: Scripts)
 Hierarchy -> Player -> Inspector-> AddComponent-> NewScripts-> PlayerController( Click create and Add)
 Copy the PlayerController and drag to Script folder
 Double click the PlayerController file and type the coding
 
 ## Program:
-
+```
+Developed By: Saravana Kumar S
+Reg.No: 212221230088
+```
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class ball : MonoBehaviour 
+{
+    // Start is called before the first frame update
+    float xForce = 5.0f;
+    float zForce = 5.0f;
+    float yForce = 20.0f;
+    void Start()
+    {
+     
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        float x=0.0f,y=0.0f,z=0.0f;
+        if (Input.GetKey(KeyCode.A))
+        {
+            x = x - xForce;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            x = x + xForce;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            z = z + zForce;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            z = z - zForce;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            y = yForce;
+        }
+        GetComponent<Rigidbody>().AddForce(x, y, z);
+    }
+}
+```
 ## Output:
+![Alt text](out1.png)
+
+![Alt text](out2.png)
 
 ## Result:
+Thus, the 3D application for roll the ball objects in unity is developed successfully.
